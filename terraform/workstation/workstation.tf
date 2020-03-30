@@ -39,11 +39,6 @@ data "template_cloudinit_config" "config" {
 resource "aws_network_interface" "mgmt" {
   subnet_id       = "${var.mgmt_subnet.id}"
   security_groups = ["${var.securityGroup.id}"]
-
-  attachment {
-    instance     = "${aws_instance.workstation.id}"
-    device_index = 0
-  }
 }
 # public address
 resource "aws_eip" "mgmt" {
@@ -59,7 +54,7 @@ resource "aws_instance" "workstation" {
   user_data_base64 = "${data.template_cloudinit_config.config.rendered}"
   #public_ip = "${aws_eip.mgmt}"
   associate_public_ip_address = true
-  
+
   network_interface {
     network_interface_id = "${aws_network_interface.mgmt.id}"
     device_index         = 0
