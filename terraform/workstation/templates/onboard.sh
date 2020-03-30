@@ -24,7 +24,14 @@ exec 1>$LOG_FILE 2>&1
 # awscli
 # f5 cli
 # terragrunt
-
+#
+# tests
+# terraform -version
+# inspec version
+# terragrunt -version
+# f5 --version
+# aws --version
+#
 set -ex \
 && sudo apt-get update -y \
 && sudo apt-get install -y apt-transport-https wget unzip jq git software-properties-common python3-pip \
@@ -44,6 +51,22 @@ set -ex \
 && echo "auto completion" \
 && complete -C '/usr/bin/aws_completer' aws \
 && echo 'alias f5=/home/ubuntu/.local/bin/f5' >>~/.bashrc \
-&& terraform -install-autocomplete 
+&& terraform -install-autocomplete
+
+echo "test tools"
+echo '# test tools' >>~/.bashrc
+echo '/bin/bash /home/ubuntu/testTools.sh' >>~/.bashrc
+cat > /home/ubuntu/testTools.sh <<EOF 
+#!/bin/bash
+echo "=====Installed Versions====="
+terraform -version
+echo "inspec:"
+inspec version
+terragrunt -version
+f5 --version
+aws --version
+echo "=====Installed Versions====="
+EOF
+
 echo "=====done====="
 exit
