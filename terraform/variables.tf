@@ -2,10 +2,6 @@ variable "adminSrcAddr" {
   
 }
 
-variable "adminPublicKey" {
-  
-}
-
 variable "awsRegion" {
   
 }
