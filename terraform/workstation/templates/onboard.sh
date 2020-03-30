@@ -50,12 +50,11 @@ set -ex \
 && curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec \
 && echo "auto completion" \
 && complete -C '/usr/bin/aws_completer' aws \
-&& echo 'alias f5=/home/ubuntu/.local/bin/f5' >>~/.bashrc \
 && terraform -install-autocomplete
 
 echo "test tools"
-echo '# test tools' >>~/.bashrc
-echo '/bin/bash /home/ubuntu/testTools.sh' >>~/.bashrc
+echo '# test tools' >>/home/ubuntu/.bashrc
+echo '/bin/bash /home/ubuntu/testTools.sh' >>/home/ubuntu/.bashrc
 cat > /home/ubuntu/testTools.sh <<EOF 
 #!/bin/bash
 echo "=====Installed Versions====="
