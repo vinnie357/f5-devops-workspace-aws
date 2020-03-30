@@ -39,6 +39,8 @@ set -ex \
 && sudo wget https://github.com/gruntwork-io/terragrunt/releases/download/v${terragruntVersion}/terragrunt_linux_amd64 \
 && sudo mv ./terragrunt_linux_amd64 /usr/local/bin/terragrunt \
 && sudo chmod +x /usr/local/bin/terragrunt \
+&& echo "chef Inspec" \
+&& curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec \
 && echo "auto completion" \
 && complete -C '/usr/bin/aws_completer' aws \
 && echo 'alias f5=/home/ubuntu/.local/bin/f5' >>~/.bashrc \
