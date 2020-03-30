@@ -63,5 +63,7 @@ resource "aws_instance" "workstation" {
   }
    root_block_device { delete_on_termination = true }
   
-
+  tags = {
+    Name = "${var.projectPrefix}workstation${var.buildSuffix}"
+  }
 }
