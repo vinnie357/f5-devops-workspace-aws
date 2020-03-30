@@ -6,10 +6,14 @@ CFT
 terraform
 
 # variables
-adminSrcAddr
-terraformVersion
-awscliVersion
-sshPublicKey
-
-
-# 
+- adminSrcAddr
+- terraformVersion
+- awscliVersion
+- instanceType
+- awsRegion
+- awsKeyName
+- projectPrefix
+# env variables
+- AWS_ACCESS_KEY_ID 
+- AWS_SECRET_ACCESS_KEY
+- AWS_DEFAULT_REGION
