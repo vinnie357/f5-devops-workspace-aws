@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_vpc" "mgmt" {
   cidr_block = "10.0.0.0/16"
   tags = {
-    Name = "${var.projectPrefix}workstation-vpc${var.buildSuffix}"
+    Name = "${var.projectPrefix}workstation-vpc-${random_pet.buildSuffix.id}"
   }
 }
 # subnet
@@ -15,7 +15,7 @@ resource "aws_subnet" "mgmt" {
   vpc_id     = "${aws_vpc.mgmt.id}"
   cidr_block = "10.0.1.0/24"
   tags = {
-    Name = "${var.projectPrefix}workstation-subnet${var.buildSuffix}"
+    Name = "${var.projectPrefix}workstation-subnet-${random_pet.buildSuffix.id}"
   }
 }
 resource "aws_security_group" "allow_ssh" {
@@ -38,14 +38,14 @@ resource "aws_security_group" "allow_ssh" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "${var.projectPrefix}workstation-securityGroup${var.buildSuffix}"
+    Name = "${var.projectPrefix}workstation-securityGroup-${random_pet.buildSuffix.id}"
   }
 }
 # internet gateway
 resource "aws_internet_gateway" "mgmt" {
   vpc_id = "${aws_vpc.mgmt.id}"
   tags = {
-    Name = "${var.projectPrefix}workstation-igw${var.buildSuffix}"
+    Name = "${var.projectPrefix}workstation-igw-${random_pet.buildSuffix.id}"
   }
 }
 # route internet gatway
@@ -58,7 +58,7 @@ resource "aws_route_table" "mgmt" {
     
   }
   tags = {
-    Name = "${var.projectPrefix}workstation-routetable${var.buildSuffix}"
+    Name = "${var.projectPrefix}workstation-routetable-${random_pet.buildSuffix.id}"
   }
 }
 # route table association
