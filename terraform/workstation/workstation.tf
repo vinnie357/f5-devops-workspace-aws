@@ -53,8 +53,7 @@ resource "aws_instance" "workstation" {
   instance_type = "${var.instanceType}"
   key_name = "${var.key_name}"
   user_data_base64 = "${data.template_cloudinit_config.config.rendered}"
-  public_ip = "${aws_eip.mgmt}"
-  #associate_public_ip_address = true
+  associate_public_ip_address = true
 
   network_interface {
     network_interface_id = "${aws_network_interface.mgmt.id}"
