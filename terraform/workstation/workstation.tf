@@ -40,11 +40,17 @@ data "template_cloudinit_config" "config" {
 resource "aws_network_interface" "mgmt" {
   subnet_id       = "${var.mgmt_subnet.id}"
   security_groups = ["${var.securityGroup.id}"]
+  tags = {
+    Name = "${var.projectPrefix}workstation-interface${var.buildSuffix}"
+  }
 }
 # public address
 resource "aws_eip" "mgmt" {
   vpc                       = true
   network_interface         = "${aws_network_interface.mgmt.id}"
+  tags = {
+    Name = "${var.projectPrefix}workstation-eip${var.buildSuffix}"
+  }
 }
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = "${aws_instance.workstation.id}"

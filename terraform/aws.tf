@@ -6,11 +6,17 @@ provider "aws" {
 # vpc
 resource "aws_vpc" "mgmt" {
   cidr_block = "10.0.0.0/16"
+  tags = {
+    Name = "${var.projectPrefix}workstation-vpc${var.buildSuffix}"
+  }
 }
 # subnet
 resource "aws_subnet" "mgmt" {
   vpc_id     = "${aws_vpc.mgmt.id}"
   cidr_block = "10.0.1.0/24"
+  tags = {
+    Name = "${var.projectPrefix}workstation-subnet${var.buildSuffix}"
+  }
 }
 resource "aws_security_group" "allow_ssh" {
   name        = "${var.projectPrefix}allow_ssh-${random_pet.buildSuffix.id}"
@@ -31,11 +37,16 @@ resource "aws_security_group" "allow_ssh" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
+  tags = {
+    Name = "${var.projectPrefix}workstation-securityGroup${var.buildSuffix}"
+  }
 }
 # internet gateway
 resource "aws_internet_gateway" "mgmt" {
   vpc_id = "${aws_vpc.mgmt.id}"
+  tags = {
+    Name = "${var.projectPrefix}workstation-igw${var.buildSuffix}"
+  }
 }
 # route internet gatway
 resource "aws_route_table" "mgmt" {
@@ -45,6 +56,9 @@ resource "aws_route_table" "mgmt" {
     cidr_block = "0.0.0.0/0"
     gateway_id = "${aws_internet_gateway.mgmt.id}"
     
+  }
+  tags = {
+    Name = "${var.projectPrefix}workstation-routetable${var.buildSuffix}"
   }
 }
 # route table association
