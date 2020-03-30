@@ -52,13 +52,15 @@ resource "aws_route_table" "mgmt" {
 module "workstation" {
   source   = "./workstation"
   # vars:
-  name = "workspace"
   mgmt_vpc = "${aws_vpc.mgmt}"
   mgmt_subnet = "${aws_subnet.mgmt}"
   securityGroup = "${aws_security_group.allow_ssh}"
   key_name = "${var.awsKeyName}"
   projectPrefix = "${var.projectPrefix}"
   buildSuffix = "-${random_pet.buildSuffix.id}"
+  awscliVersion ="${var.awscliVersion}"
+  instanceType = "${var.instanceType}"
+
 }
 resource "random_pet" "buildSuffix" {
   keepers = {
