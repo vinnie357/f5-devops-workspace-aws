@@ -63,7 +63,7 @@ resource "aws_route_table" "mgmt" {
 }
 # route table association
 resource "aws_route_table_association" "mgmt" {
-  gateway_id     = aws_internet_gateway.mgmt.id
+  subnet_id     = aws_subnet.mgmt.id
   route_table_id = aws_route_table.mgmt.id
 }
 
