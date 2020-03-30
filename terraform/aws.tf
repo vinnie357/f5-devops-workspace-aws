@@ -9,7 +9,7 @@ resource "aws_vpc" "mgmt" {
 }
 # subnet
 resource "aws_subnet" "mgmt" {
-  vpc_id     = "${aws_vpc.main.id}"
+  vpc_id     = "${aws_vpc.mgmt.id}"
   cidr_block = "10.0.1.0/24"
 }
 resource "aws_security_group" "allow_ssh" {

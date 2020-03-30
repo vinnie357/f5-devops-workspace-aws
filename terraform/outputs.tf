@@ -1,3 +1,3 @@
 output "workspaceAddress" {
-  value = "${module.workstation.device_mgmt_ips}"
+  value = "${module.workstation.workspaceManagementAddress}"
 }

@@ -18,10 +18,11 @@ data "aws_ami" "ubuntu" {
 data "template_file" "onboard" {
   template = "${file("${path.module}/templates/onboard.yaml")}"
 
-  vars {
+  vars = {
     terraformVersion = "${var.terraformVersion}"
     awscliVersion = "${var.awscliVersion}"
   }
+
 }
 # cloud init template
 data "template_cloudinit_config" "config" {
