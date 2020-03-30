@@ -24,6 +24,16 @@ data "template_file" "onboard" {
   }
 
 }
+# bash script template
+data "template_file" "onboardBash" {
+  template = "${file("${path.module}/templates/onboard.sh")}"
+
+  vars = {
+    terraformVersion = "${var.terraformVersion}"
+    awscliVersion = "${var.awscliVersion}"
+  }
+
+}
 # cloud init template
 data "template_cloudinit_config" "config" {
   gzip          = true
@@ -61,8 +71,8 @@ resource "aws_instance" "workstation" {
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "${var.instanceType}"
   key_name = "${var.key_name}"
-  user_data_base64 = "${data.template_cloudinit_config.config.rendered}"
-
+  #user_data_base64 = "${data.template_cloudinit_config.config.rendered}"
+  user_data = "${data.template_file.onboardBash.rendered}"
   network_interface {
     network_interface_id = "${aws_network_interface.mgmt.id}"
     device_index         = 0
