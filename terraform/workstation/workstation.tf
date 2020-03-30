@@ -46,14 +46,16 @@ resource "aws_eip" "mgmt" {
   vpc                       = true
   network_interface         = "${aws_network_interface.mgmt.id}"
 }
-
+resource "aws_eip_association" "eip_assoc" {
+  instance_id   = "${aws_instance.workstation.id}"
+  allocation_id = "${aws_eip.mgmt.id}"
+}
 # instance
 resource "aws_instance" "workstation" {
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "${var.instanceType}"
   key_name = "${var.key_name}"
   user_data_base64 = "${data.template_cloudinit_config.config.rendered}"
-  associate_public_ip_address = true
 
   network_interface {
     network_interface_id = "${aws_network_interface.mgmt.id}"
