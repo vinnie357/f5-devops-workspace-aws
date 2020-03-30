@@ -60,6 +60,7 @@ module "workstation" {
   buildSuffix = "-${random_pet.buildSuffix.id}"
   awscliVersion ="${var.awscliVersion}"
   instanceType = "${var.instanceType}"
+  terraformVersion = "${var.terraformVersion}"
 
 }
 resource "random_pet" "buildSuffix" {
