@@ -23,3 +23,6 @@ variable "awsKeyName" {
 variable "projectPrefix" {
   
 }
+variable "terragruntVersion" {
+  
+}

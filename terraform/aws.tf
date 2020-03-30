@@ -80,7 +80,7 @@ module "workstation" {
   awscliVersion ="${var.awscliVersion}"
   instanceType = "${var.instanceType}"
   terraformVersion = "${var.terraformVersion}"
-
+  terragruntVersion = "${var.terragruntVersion}"
 }
 resource "random_pet" "buildSuffix" {
   keepers = {

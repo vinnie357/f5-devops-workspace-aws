@@ -30,4 +30,7 @@ variable "buildSuffix" {
   
 }
 
+variable "terragruntVersion" {
+  
+}
 

@@ -2,13 +2,14 @@
 terraform workspace deployed in aws with Terraform and awscli
 
 # options
-CFT
-terraform
+- CFT
+- Terraform
 
 # variables
 - adminSrcAddr
 - terraformVersion
 - awscliVersion
+- terragruntVersion
 - instanceType
 - awsRegion
 - awsKeyName
