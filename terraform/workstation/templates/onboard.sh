@@ -32,6 +32,28 @@ exec 1>$LOG_FILE 2>&1
 # f5 --version
 # aws --version
 #
+## vscode settings
+## /repo/.vscode/extensions.json
+# {
+# 	// See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+# 	// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+# 	// List of extensions which should be recommended for users of this workspace.
+# 	"recommendations": [
+# 		"mauve.terraform"
+# 	],
+# 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+# 	"unwantedRecommendations": [		
+# 	]
+# }
+#install-extensions:
+#    cat extensions.txt | xargs -L 1 code --install-extension
+## /home/ubuntu/.vscode-server/data/Machine/settings.json
+# {
+#     "files.eol": "\n",
+#     "editor.tabSize": 4,
+#     "editor.insertSpaces": true
+# }
+#
 set -ex \
 && sudo apt-get update -y \
 && sudo apt-get install -y apt-transport-https wget unzip jq git software-properties-common python3-pip \

@@ -1,0 +1,16 @@
+# project prefix/tag for all object names
+projectPrefix = "user-build-sca-"
+# aws region where build and resources are created
+awsRegion = "us-east-1"
+# instance typesize default is 4x16.
+instanceType = "m4.xlarge"
+# Existing aws keypair name
+awsKeyName = "myAws-keyPair"
+# admin source address https://www.ipchicken.com/ with cidr mask ip/32
+adminSrcAddr = "myexternalip/32"
+# installed terraform version
+terraformVersion = "0.12.23"
+# version of awscli installed
+awscliVersion = "2"
+# version of terragrunt installed
+terragruntVersion = "0.23.4"
