@@ -83,3 +83,21 @@ Terraform workspace deployed in AWS with Terraform and awscli
 ## Optional Extensions
 - https://marketplace.visualstudio.com/items?itemName=mauve.terraform
 
+## Known issues
+- ssh ids on reapply
+    ```bash
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    ```
+    win:
+        
+        ssh-keygen -f "c:\\Users\\user/.ssh/known_hosts" -R 18.210.163.252
+    linux:
+
+        ssh-keygen -f "/root/.ssh/known_hosts" -R 18.210.163.252
+- VScode Remote
+     
+     settings
+     
+     extensions installed
