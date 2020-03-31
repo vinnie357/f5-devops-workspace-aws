@@ -2,7 +2,11 @@
 Terraform workspace deployed in AWS with Terraform and awscli
 
 # deploy the workstation with your tool of choice:
-    
+
+# Prerequisites
+ - aws credentials
+ - aws EC2 SSH keyPair
+
 ## Options:
 - [CFT](https://console.aws.amazon.com/cloudformation/home)
 
@@ -10,7 +14,7 @@ Terraform workspace deployed in AWS with Terraform and awscli
 
 - [Terraform Cloud](https://app.terraform.io/)
 
-# Variables
+## Variables
 - projectPrefix
     - project prefix/tag for all object names
       
@@ -44,37 +48,37 @@ Terraform workspace deployed in AWS with Terraform and awscli
     
         eg: "0.23.4"
 
-# env variables
+## env variables
 - AWS_ACCESS_KEY_ID 
 - AWS_SECRET_ACCESS_KEY
 - AWS_DEFAULT_REGION
 
-# Connect with VS Code Remote Development
+## Connect with VS Code Remote Development
 - https://code.visualstudio.com/docs/remote/remote-overview
 
-Open Extensions menu: 
+    Open Extensions menu: 
 
-![alt text][vscodeExtensions]
+    ![alt text][vscodeExtensions]
 
-[vscodeExtensions]: images/vscodeExtensions.PNG "vscode extensions"
+    [vscodeExtensions]: images/vscodeExtensions.PNG "vscode extensions"
 
-Add Remote Devpack Extensions: 
+    Add Remote Devpack Extensions: 
 
-![alt text][devPack]
+    ![alt text][devPack]
 
-[devPack]: images/remoteDevPack.PNG "Remote Dev Pack"
+    [devPack]: images/remoteDevPack.PNG "Remote Dev Pack"
 
-Configure Remote SSH extension: 
+    Configure Remote SSH extension: 
 
-![alt text][remoteExt] ![alt text][remoteConfig]
+    ![alt text][remoteExt] ![alt text][remoteConfig]
 
-![alt text][sshConfig]
+    ![alt text][sshConfig]
 
-[remoteExt]: images/remoteIcon.PNG "Remote SSH icon"
+    [remoteExt]: images/remoteIcon.PNG "Remote SSH icon"
 
-[remoteConfig]: images/remoteConfig.PNG "Remote SSH config"
+    [remoteConfig]: images/remoteConfig.PNG "Remote SSH config"
 
-[sshConfig]: images/sshConfig.PNG "SSH config"
+    [sshConfig]: images/sshConfig.PNG "SSH config"
 
 ## Optional Extensions
 - https://marketplace.visualstudio.com/items?itemName=mauve.terraform
