@@ -36,7 +36,7 @@ exec 1>$LOG_FILE 2>&1
 ## /repo/.vscode/extensions.json
 # {
 # 	// See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
-# 	// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+# 	// Extension identifier format: $${publisher}.$${name}. Example: vscode.csharp
 # 	// List of extensions which should be recommended for users of this workspace.
 # 	"recommendations": [
 # 		"mauve.terraform"
