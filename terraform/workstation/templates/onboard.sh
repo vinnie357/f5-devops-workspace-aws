@@ -74,6 +74,12 @@ set -ex \
 && complete -C '/usr/bin/aws_completer' aws \
 && terraform -install-autocomplete
 
+cat >> /home/ubuntu/.bashrc << EOC
+${bashrcadditions}
+
+EOC
+
+
 echo "test tools"
 echo '# test tools' >>/home/ubuntu/.bashrc
 echo '/bin/bash /home/ubuntu/testTools.sh' >>/home/ubuntu/.bashrc
