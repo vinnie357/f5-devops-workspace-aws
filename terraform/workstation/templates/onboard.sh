@@ -91,9 +91,12 @@ aws --version
 echo "=====Installed Versions====="
 EOF
 echo "clone repositories"
+ifsDefault=$IFS
+IFS=','
 for repo in $repositories
 do
     git clone $repo
 done
+IFS=$ifsDefault
 echo "=====done====="
 exit
