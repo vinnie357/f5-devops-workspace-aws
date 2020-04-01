@@ -50,7 +50,7 @@ Terraform workspace deployed in AWS with Terraform and awscli
 - repositories
     - Comma seperated list of repositories to clone
 
-        eg: "https://github.com/f5devcentral/terraform-aws-f5-sca.git","https://github.com/f5devcentral/terraform-aws-bigip.git"
+        eg: "https://github.com/f5devcentral/terraform-aws-f5-sca.git,https://github.com/f5devcentral/terraform-aws-bigip.git"
 
 ## env variables
 - AWS_ACCESS_KEY_ID 

@@ -14,3 +14,5 @@ terraformVersion = "0.12.23"
 awscliVersion = "2"
 # version of terragrunt installed
 terragruntVersion = "0.23.4"
+#Comma seperated list of repositories to clone
+repositories = "https://github.com/f5devcentral/terraform-aws-f5-sca.git,https://github.com/f5devcentral/terraform-aws-bigip.git"
