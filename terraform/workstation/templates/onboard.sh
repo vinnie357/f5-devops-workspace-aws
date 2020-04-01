@@ -83,8 +83,8 @@ set -ex \
 
 echo "test tools"
 echo '# test tools' >>/home/ubuntu/.bashrc
-echo '/bin/bash /home/ubuntu/testTools.sh' >>/home/ubuntu/.bashrc
-cat > /home/ubuntu/testTools.sh <<EOF 
+echo '/bin/bash /testTools.sh' >>/home/ubuntu/.bashrc
+cat > /testTools.sh <<EOF 
 #!/bin/bash
 echo "=====Installed Versions====="
 terraform -version
