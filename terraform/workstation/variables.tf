@@ -34,3 +34,7 @@ variable "terragruntVersion" {
   
 }
 
+variable "repositories" {
+  type    = list(string)
+  default = [""]
+}v

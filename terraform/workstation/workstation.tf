@@ -32,6 +32,7 @@ data "template_file" "onboardBash" {
     terraformVersion = "${var.terraformVersion}"
     awscliVersion = "${var.awscliVersion}"
     terragruntVersion = "${var.terragruntVersion}"
+    repositories = "${var.repositories}"
   }
 
 }

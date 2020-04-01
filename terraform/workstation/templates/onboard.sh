@@ -12,6 +12,8 @@ fi
 
 exec 1>$LOG_FILE 2>&1
 
+# repos"
+repositories="${repositories}"
 # install terraform locally
 # jq 
 # curl
@@ -88,6 +90,10 @@ f5 --version
 aws --version
 echo "=====Installed Versions====="
 EOF
-
+echo "clone repositories"
+for repo in $repositories
+do
+    git clone $repo
+done
 echo "=====done====="
 exit

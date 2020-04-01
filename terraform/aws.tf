@@ -81,6 +81,7 @@ module "workstation" {
   instanceType = "${var.instanceType}"
   terraformVersion = "${var.terraformVersion}"
   terragruntVersion = "${var.terragruntVersion}"
+  repositories = "${var.repositories}"
 }
 resource "random_pet" "buildSuffix" {
   keepers = {
