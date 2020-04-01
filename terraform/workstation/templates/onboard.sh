@@ -66,9 +66,9 @@ set -ex \
 $(lsb_release -cs) \
 stable" \
 && sudo apt-get update -y \
-&& sudo apt-get install docker-ce docker-ce-cli containerd.io
-&& sudo groupadd docker
-&& sudo usermod -aG docker ubuntu
+&& sudo apt-get -y install docker-ce docker-ce-cli containerd.io \
+&& sudo groupadd docker \
+&& sudo usermod -aG docker ubuntu \
 && echo "terraform" \
 && sudo wget https://releases.hashicorp.com/terraform/${terraformVersion}/terraform_${terraformVersion}_linux_amd64.zip \
 && sudo unzip ./terraform_${terraformVersion}_linux_amd64.zip -d /usr/local/bin/ \
