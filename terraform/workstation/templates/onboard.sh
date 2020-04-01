@@ -91,12 +91,15 @@ aws --version
 echo "=====Installed Versions====="
 EOF
 echo "clone repositories"
+cwd=$(pwd)
 ifsDefault=$IFS
 IFS=','
+cd /home/ubuntu
 for repo in $repositories
 do
     git clone $repo
 done
 IFS=$ifsDefault
+cd $cwd
 echo "=====done====="
 exit
