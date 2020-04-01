@@ -105,3 +105,6 @@ Terraform workspace deployed in AWS with Terraform and awscli
      settings
      
      extensions installed
+
+
+check for inspect folders
