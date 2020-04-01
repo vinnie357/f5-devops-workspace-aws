@@ -57,13 +57,11 @@ repositories="${repositories}"
 # }
 #
 set -ex \
+&& curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
 && sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
 && sudo apt-get update -y \
 && sudo apt-get install -y apt-transport-https wget unzip jq git software-properties-common python3-pip ca-certificates gnupg-agent docker-ce docker-ce-cli containerd.io \
 && echo "docker" \
-&& curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
-&& sudo apt-get install -y docker-ce docker-ce-cli containerd.io \
-&& sudo groupadd docker \
 && sudo usermod -aG docker ubuntu \
 && sudo chown -R ubuntu: /var/run/docker.sock \
 && echo "terraform" \
