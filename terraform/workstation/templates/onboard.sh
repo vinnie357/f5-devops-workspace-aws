@@ -58,7 +58,17 @@ repositories="${repositories}"
 #
 set -ex \
 && sudo apt-get update -y \
-&& sudo apt-get install -y apt-transport-https wget unzip jq git software-properties-common python3-pip \
+&& sudo apt-get install -y apt-transport-https wget unzip jq git software-properties-common python3-pip ca-certificates gnupg-agent \
+&& echo "docker" \
+&& curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
+&& sudo add-apt-repository \
+"deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) \
+stable" \
+&& sudo apt-get update -y \
+&& sudo apt-get install docker-ce docker-ce-cli containerd.io
+&& sudo groupadd docker
+&& sudo usermod -aG docker ubuntu
 && echo "terraform" \
 && sudo wget https://releases.hashicorp.com/terraform/${terraformVersion}/terraform_${terraformVersion}_linux_amd64.zip \
 && sudo unzip ./terraform_${terraformVersion}_linux_amd64.zip -d /usr/local/bin/ \
