@@ -103,6 +103,9 @@ cd /home/ubuntu
 for repo in $repositories
 do
     git clone $repo
+    name=$(basename $repo )
+    folder=$(basename $name .git)
+    sudo chown -R ubuntu $folder
 done
 IFS=$ifsDefault
 cd $cwd
