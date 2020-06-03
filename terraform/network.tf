@@ -21,9 +21,23 @@ resource aws_security_group allow_ssh {
   vpc_id      = aws_vpc.mgmt.id
 
   ingress {
-    description = "ssh from VPC"
-    from_port   = 22
+    description = "ssh to VPC"
+    from_port   = 0
     to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [var.adminSrcAddr]
+  }
+  ingress {
+    description = "http to VPC"
+    from_port   = 0
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = [var.adminSrcAddr]
+  }
+  ingress {
+    description = "https to VPC"
+    from_port   = 0
+    to_port     = 443
     protocol    = "tcp"
     cidr_blocks = [var.adminSrcAddr]
   }
