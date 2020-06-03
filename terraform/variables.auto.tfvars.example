@@ -8,11 +8,7 @@ instanceType = "m4.xlarge"
 awsKeyName = "myAws-keyPair"
 # admin source address https://www.ipchicken.com/ with cidr mask ip/32
 adminSrcAddr = "myexternalip/32"
-# installed terraform version
-terraformVersion = "0.12.23"
-# version of awscli installed
-awscliVersion = "2"
-# version of terragrunt installed
-terragruntVersion = "0.23.4"
 #Comma seperated list of repositories to clone
 repositories = "https://github.com/f5devcentral/terraform-aws-f5-sca.git,https://github.com/f5devcentral/terraform-aws-bigip.git"
+#url to onboard script to template
+onboardScript = "https://raw.githubusercontent.com/vinnie357/workspace-onboard-bash-templates/master/terraform/aws/sca/onboard.sh"

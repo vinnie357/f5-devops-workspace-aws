@@ -7,6 +7,18 @@ Terraform workspace deployed in AWS with Terraform and awscli
  - aws credentials
  - aws EC2 SSH keyPair
 
+
+## TLDR
+
+1) set auto vars
+    - admin source address
+    - aws key name
+    
+```bash
+    terraform init
+    terraform plan
+    terraform apply
+```
 ## Options:
 - [CFT](https://console.aws.amazon.com/cloudformation/home)
 
@@ -35,22 +47,14 @@ Terraform workspace deployed in AWS with Terraform and awscli
     - admin source address https://www.ipchicken.com/ with cidr mask ip/32
     
         eg: "1.1.1.1/32"
-- terraformVersion
-    - installed terraform version
-    
-        eg: "0.12.23"
-- awscliVersion
-    - version of awscli installed
-    
-        eg: "2"
-- terragruntVersion
-    - version of terragrunt installed
-    
-        eg: "0.23.4"
 - repositories
     - Comma seperated list of repositories to clone
 
         eg: "https://github.com/f5devcentral/terraform-aws-f5-sca.git,https://github.com/f5devcentral/terraform-aws-bigip.git"
+- onboardScript
+    - url to onboard script to template
+
+        eg: "https://raw.githubusercontent.com/vinnie357/workspace-onboard-bash-templates/master/terraform/aws/sca/onboard.sh"
 
 ## env variables
 - AWS_ACCESS_KEY_ID 

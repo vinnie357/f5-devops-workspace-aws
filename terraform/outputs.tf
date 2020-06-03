@@ -1,3 +1,4 @@
-output "workspaceAddress" {
-  value = "${module.workstation.workspaceManagementAddress}"
+output workspaceAddress {
+  value = module.workstation.workspaceManagementAddress
 }
+

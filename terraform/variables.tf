@@ -1,32 +1,25 @@
-variable "adminSrcAddr" {
-  
+variable adminSrcAddr {
+    description = "admin source in cidr 192.168.100.100/32"
 }
 
-variable "awsRegion" {
-  
-}
-variable "terraformVersion" {
-  
-}
-variable "awscliVersion" {
-  
+variable awsRegion {
+    default = "us-east-1"
 }
 
-variable "instanceType" {
-  
+variable instanceType {
+    description = "machine size"
 }
 
-variable "awsKeyName" {
-  
+variable awsKeyName {
+    description = "your existing aws key pair"
 }
 
-variable "projectPrefix" {
-  
+variable projectPrefix {
+   description = "prefix for created items"
 }
-variable "terragruntVersion" {
-  
+variable onboardScript { 
+    description = "URL to userdata onboard script"
 }
-
-variable "repositories" {
-default = ""
+variable repositories { 
+    description = "comma seperated list of git repositories to clone"
 }
