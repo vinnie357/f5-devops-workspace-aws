@@ -8,6 +8,7 @@ variable awsRegion {
 
 variable instanceType {
     description = "machine size"
+    default = "m4.xlarge"
 }
 
 variable awsKeyName {
